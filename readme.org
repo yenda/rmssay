@@ -1,0 +1,28 @@
+I wanted a quick command to generate some free software wisdom, who
+better than RMS can do this job ? :)
+
+By editing stallman (quotes file) and rms.cow (ascii art) and renaming
+the script to your liking you can actually get a generator for
+wathever you want.
+
+You can also just do things like
+
+
+#+BEGIN_SRC sh
+  fortune myascii | cowsay -f myquotes
+#+END_SRC
+
+where myascii and myquotes are in /usr/share/fortune and
+/usr/share/cows respectively
+
+
+* Dependencies
+
+- make (for the install)
+- cowsay (to display ASCII rms)
+- fortune (to get a random quote from the quote file)
+
+* Improvements
+
+- better ascii art is welcome
+- more quotes
