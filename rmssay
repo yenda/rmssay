@@ -1,2 +1,7 @@
 #!/bin/bash
-fortune stallman | cowsay -f rms
+if [ $# -eq 0 ]
+then
+    fortune stallman | cowsay -f rms
+else
+    cowsay -f rms $1
+fi
