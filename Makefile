@@ -1,9 +1,18 @@
-.PHONY: all
+.PHONY: all install uninstall
 
-all: install
+all: stallman.dat
+
+stallman.dat: stallman
+	strfile stallman stallman.dat
 
 install:
-	cp ./rms.cow /usr/share/cowsay/cows
-	strfile stallman stallman.dat
-	cp ./stallman /usr/share/fortune
-	cp ./rmssay /bin/
+	install -m644 rms.cow $(DESTDIR)/usr/share/cows
+	install -m644 stallman $(DESTDIR)/usr/share/fortune
+	install -m644 stallman.dat $(DESTDIR)/usr/share/fortune
+	install -m755 rmssay $(DESTDIR)/usr/local/bin
+
+uninstall:
+	rm $(DESTDIR)/usr/share/cows/rms.cow
+	rm $(DESTDIR)/usr/share/fortune/stallman
+	rm $(DESTDIR)/usr/share/fortune/stallman.dat
+	rm $(DESTDIR)/usr/local/bin/rmssay
